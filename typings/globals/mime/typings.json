@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed/mime/mime.d.ts",
+    "raw": "github:DefinitelyTyped/DefinitelyTyped/mime/mime.d.ts#1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/1ec3d510e0c4d7c50e708ca7cb0765c7e06fa2ed/mime/mime.d.ts"
+  }
+}
