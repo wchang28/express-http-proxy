@@ -19,16 +19,15 @@ function get(options) {
             proxy.web(req, res, opt);
             proxy.on('error', function (err, req, res) {
                 if (eventEmitter)
-                    eventEmitter.emit('error', { err: err, req: req, res: res });
-                //res.status(500).json({err});
+                    eventEmitter.emit('error', err, req, res);
             });
             proxy.on('proxyReq', function (proxyReq, req, res, options) {
                 if (eventEmitter)
-                    eventEmitter.emit('proxyReq', { proxyReq: proxyReq, req: req, res: res, options: options });
+                    eventEmitter.emit('proxyReq', proxyReq, req, res, options);
             });
             proxy.on('proxyRes', function (proxyRes, req, res) {
                 if (eventEmitter)
-                    eventEmitter.emit('proxyRes', { proxyRes: proxyRes, req: req, res: res });
+                    eventEmitter.emit('proxyRes', proxyRes, req, res);
             });
         }).catch(function (err) {
             res.status(500).json({ err: err });

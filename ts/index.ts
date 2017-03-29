@@ -30,14 +30,13 @@ export function get(options: Options) : express.RequestHandler {
             if (typeof settings.rejectUnauthorized === 'boolean') opt.secure = settings.rejectUnauthorized;
             proxy.web(req, res, opt);
             proxy.on('error', (err:any, req: express.Request, res:express.Response) => {
-                if (eventEmitter) eventEmitter.emit('error', {err, req, res});
-                //res.status(500).json({err});
+                if (eventEmitter) eventEmitter.emit('error', err, req, res);
             });
             proxy.on('proxyReq', (proxyReq:http.ClientRequest, req: express.Request, res: express.Response, options: httpProxy.ServerOptions) => {
-                if (eventEmitter) eventEmitter.emit('proxyReq', {proxyReq, req, res, options});
+                if (eventEmitter) eventEmitter.emit('proxyReq', proxyReq, req, res, options);
             });
             proxy.on('proxyRes', (proxyRes:http.IncomingMessage, req: express.Request, res: express.Response) => {
-                if (eventEmitter) eventEmitter.emit('proxyRes', {proxyRes, req, res});
+                if (eventEmitter) eventEmitter.emit('proxyRes', proxyRes, req, res);
             });
         }).catch((err: any) => {
             res.status(500).json({err});
